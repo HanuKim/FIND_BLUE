@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guide - Find Blue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#faf8ff",
+                    "primary-fixed": "#acbfff",
+                    "background": "#f7f9fb",
+                    "on-error": "#fff7f6",
+                    "on-surface-variant": "#596063",
+                    "surface-dim": "#d3dbdf",
+                    "tertiary": "#842cd3",
+                    "on-secondary": "#fbf7ff",
+                    "secondary": "#4a4bd7",
+                    "surface": "#f7f9fb",
+                    "tertiary-container": "#d4a6ff",
+                    "outline": "#757c7f",
+                    "on-secondary-container": "#3b3cc9",
+                    "secondary-fixed": "#e1e0ff",
+                    "on-tertiary-fixed": "#33005c",
+                    "on-tertiary-container": "#52008e",
+                    "secondary-dim": "#3d3dcb",
+                    "error": "#ac3434",
+                    "outline-variant": "#acb3b7",
+                    "on-background": "#2d3337",
+                    "tertiary-dim": "#7717c6",
+                    "secondary-fixed-dim": "#d1d0ff",
+                    "tertiary-fixed-dim": "#ca93ff",
+                    "secondary-container": "#e1e0ff",
+                    "on-secondary-fixed-variant": "#4647d3",
+                    "surface-container-highest": "#dde3e7",
+                    "primary": "#0053dc",
+                    "surface-container-high": "#e3e9ec",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-primary": "#618bff",
+                    "on-primary-fixed-variant": "#003ca5",
+                    "on-surface": "#2d3337",
+                    "on-secondary-fixed": "#2622b7",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container": "#eaeef1",
+                    "on-error-container": "#65000b",
+                    "tertiary-fixed": "#d4a6ff",
+                    "on-tertiary": "#fff6ff",
+                    "on-primary-container": "#003592",
+                    "error-container": "#f56965",
+                    "on-tertiary-fixed-variant": "#5e00a2",
+                    "surface-variant": "#dde3e7",
+                    "primary-fixed-dim": "#98b1ff",
+                    "on-primary-fixed": "#002265",
+                    "inverse-surface": "#0b0f10",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#9a9d9f",
+                    "error-dim": "#70030f",
+                    "primary-dim": "#0049c2",
+                    "surface-tint": "#0053dc",
+                    "primary-container": "#acbfff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .font-label { font-family: 'Space Grotesk', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(0, 83, 220, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] border-b border-white/10 dark:border-white/5 font-['Manrope'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Find Blue</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Map Analysis</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Trends</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Recommendations</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">AI Report</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-600 cursor-pointer hover:scale-110 transition-transform">chat</span>
+<span class="material-symbols-outlined text-slate-600 cursor-pointer hover:scale-110 transition-transform">help_outline</span>
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary px-5 py-2 rounded-xl font-semibold shadow-lg shadow-primary/30 hover:scale-105 active:scale-95 transition-all">Start Analysis</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="User Profile" data-alt="professional male business analyst in a modern office setting with soft natural lighting and warm atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTL8TCpPrRBrRpTrGxnxE4tVBRV0RMdv07-tR-Otg_AywnEFmuOKus_QAwyNCS2l8c2-7mpHErFUiijQCBIdn8ADyF84WYzqiZ0q-XK_oZby4pcfTYAUrdwA46B7G9h_dTqwbUxj4ZLzvljoJOXsIXLRBhN1rVCNJRjAyQzmjswBE8j9OvhFRJRWsr8HPZms5oWzx4wCqKDg1IodUYCe3BkyVvYWo8eeaT1eJEYDGAZg-qqcEARcPbIuUnqb2tWAmB6TZIQ518ys2_"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 w-64 flex flex-col p-4 bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl rounded-r-3xl h-[calc(100vh-2rem)] my-4 shadow-2xl shadow-blue-900/10 font-['Manrope'] font-medium z-40 hidden md:flex">
+<div class="mb-8 px-4">
+<h2 class="font-black text-blue-700 dark:text-indigo-500 text-xl">The Observatory</h2>
+<p class="text-xs text-slate-500 uppercase tracking-widest">Urban Data Analysis</p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 dark:hover:bg-slate-800/20 transition-all rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">map</span>
+<span>Map Analysis</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 dark:hover:bg-slate-800/20 transition-all rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+<span>Demand</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 dark:hover:bg-slate-800/20 transition-all rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Trends</span>
+</div>
+<div class="flex items-center gap-3 p-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 dark:hover:bg-slate-800/20 transition-all rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>AI Report</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 text-blue-700 dark:text-indigo-300 rounded-xl cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span>Guide</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-32 pb-20 px-8 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-fixed/20 text-on-primary-fixed-variant rounded-full mb-6">
+<span class="material-symbols-outlined text-sm">info</span>
+<span class="font-label text-xs font-bold tracking-widest uppercase">System Documentation</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-headline font-extrabold text-on-background tracking-tighter mb-4">
+                The User <span class="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">Guide</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                Unlock the full potential of urban data analysis. Understand the algorithms, metrics, and logic that power the Find Blue intelligence engine.
+            </p>
+</header>
+<!-- Section 1: Explanation Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-24">
+<!-- What is Mismatch Score? (Featured Card) -->
+<div class="md:col-span-8 glass-card p-8 rounded-xl shadow-blue-900/5 group hover:shadow-xl transition-all duration-500">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-primary/10 rounded-xl text-primary">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<span class="font-label text-xs text-outline-variant font-medium">CORE CONCEPT</span>
+</div>
+<h3 class="text-3xl font-headline font-bold mb-4">What is Mismatch Score?</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6 text-lg">
+                    The Mismatch Score measures the gap between current business density and latent consumer demand in a specific micro-location. A higher score indicates a "Blue Ocean"—an underserved market with significant growth potential.
+                </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/50">
+<div class="text-primary font-bold text-xl mb-1">Low (0-30)</div>
+<p class="text-xs text-on-surface-variant font-medium">Saturated market. High competition.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/50">
+<div class="text-secondary font-bold text-xl mb-1">Med (31-70)</div>
+<p class="text-xs text-on-surface-variant font-medium">Stable demand. Moderate barriers.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl border border-white/50">
+<div class="text-tertiary font-bold text-xl mb-1">High (71-100)</div>
+<p class="text-xs text-on-surface-variant font-medium">Prime Opportunity. High demand.</p>
+</div>
+</div>
+</div>
+<!-- Scoring Methodology -->
+<div class="md:col-span-4 bg-surface-container-lowest glass-card p-8 rounded-xl shadow-blue-900/5 hover:translate-y-[-4px] transition-transform">
+<span class="material-symbols-outlined text-primary mb-6">architecture</span>
+<h3 class="text-xl font-headline font-bold mb-3">Scoring Methodology</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                    Our proprietary algorithm weighs five distinct vectors: Foot traffic velocity, Local purchasing power index, Existing competitor proximity, Digital intent signals, and Zoning sustainability.
+                </p>
+<hr class="my-6 border-outline-variant/10"/>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        Anonymized Mobility Data
+                    </li>
+<li class="flex items-center gap-3 text-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                        Transaction Metadata
+                    </li>
+</ul>
+</div>
+<!-- Key Metrics Explanation -->
+<div class="md:col-span-4 bg-surface-container-lowest glass-card p-8 rounded-xl shadow-blue-900/5">
+<h3 class="text-xl font-headline font-bold mb-4">Key Metrics Explanation</h3>
+<div class="space-y-6">
+<div>
+<div class="text-xs font-label font-bold text-primary tracking-widest uppercase mb-1">VIBE INDEX</div>
+<p class="text-sm text-on-surface-variant">Qualitative sentiment analysis based on local social interactions and venue popularity.</p>
+</div>
+<div>
+<div class="text-xs font-label font-bold text-secondary tracking-widest uppercase mb-1">VELOCITY RATE</div>
+<p class="text-sm text-on-surface-variant">The speed at which new businesses are entering or exiting the 2km radius zone.</p>
+</div>
+</div>
+</div>
+<!-- Industry Recommendation Logic -->
+<div class="md:col-span-4 bg-surface-container-lowest glass-card p-8 rounded-xl shadow-blue-900/5">
+<span class="material-symbols-outlined text-secondary mb-6">psychology</span>
+<h3 class="text-xl font-headline font-bold mb-3">Recommendation Logic</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                    We don't just find gaps; we find fits. Our AI compares the local demographic profile against 142 distinct industry benchmarks to suggest high-probability business models.
+                </p>
+</div>
+<!-- Data Sources -->
+<div class="md:col-span-4 bg-gradient-to-br from-primary-container to-secondary-container p-8 rounded-xl shadow-xl shadow-primary/10 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-primary-container mb-3">Data Sources</h3>
+<p class="text-sm text-on-primary-container/80 leading-relaxed">
+                        Ethical, compliant, and real-time. We aggregate data from over 50+ premium providers to ensure your analysis is grounded in reality.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-6">
+<span class="px-3 py-1 bg-white/30 rounded-full text-[10px] font-bold text-on-primary-container">OSM DATA</span>
+<span class="px-3 py-1 bg-white/30 rounded-full text-[10px] font-bold text-on-primary-container">CENSUS 2024</span>
+<span class="px-3 py-1 bg-white/30 rounded-full text-[10px] font-bold text-on-primary-container">CREDIT FLOWS</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Glass Tables & Deep Dives -->
+<section class="space-y-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-4xl font-headline font-bold mb-2">Industry Benchmarks</h2>
+<p class="text-on-surface-variant">Global performance metrics for various commercial sectors.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container-high rounded-lg text-sm font-semibold hover:bg-surface-container-highest transition-colors">Download PDF</button>
+<button class="px-4 py-2 bg-surface-container-high rounded-lg text-sm font-semibold hover:bg-surface-container-highest transition-colors">API Reference</button>
+</div>
+</div>
+<div class="overflow-hidden glass-card rounded-xl border border-white/40 shadow-blue-900/5">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 font-label text-xs font-bold text-outline uppercase tracking-wider">Industry Sector</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-outline uppercase tracking-wider">Ideal Density</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-outline uppercase tracking-wider">Yield Potential</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-outline uppercase tracking-wider">Avg. ROI Period</th>
+<th class="px-6 py-4 font-label text-xs font-bold text-outline uppercase tracking-wider">Risk Level</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-white/40 transition-colors">
+<td class="px-6 py-6 font-bold text-on-background">Specialty Coffee</td>
+<td class="px-6 py-6 text-on-surface-variant">4-6 venues / km²</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs font-bold">HIGH</span>
+</td>
+<td class="px-6 py-6 text-on-surface-variant italic">18 - 24 Months</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+<span class="text-sm">Moderate</span>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-white/40 transition-colors">
+<td class="px-6 py-6 font-bold text-on-background">Boutique Fitness</td>
+<td class="px-6 py-6 text-on-surface-variant">1-2 venues / km²</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-bold">PREMIUM</span>
+</td>
+<td class="px-6 py-6 text-on-surface-variant italic">30 - 36 Months</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-green-400"></div>
+<span class="text-sm">Low</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/40 transition-colors">
+<td class="px-6 py-6 font-bold text-on-background">Dark Kitchens</td>
+<td class="px-6 py-6 text-on-surface-variant">Unrestricted</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-primary-container text-on-primary-container rounded text-xs font-bold">SCALABLE</span>
+</td>
+<td class="px-6 py-6 text-on-surface-variant italic">12 - 14 Months</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-red-400"></div>
+<span class="text-sm">Aggressive</span>
+</div>
+</td>
+</tr>
+<tr class="bg-surface-container-low/20 hover:bg-white/40 transition-colors">
+<td class="px-6 py-6 font-bold text-on-background">Co-working Hubs</td>
+<td class="px-6 py-6 text-on-surface-variant">3-5 venues / km²</td>
+<td class="px-6 py-6">
+<span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-bold">STABLE</span>
+</td>
+<td class="px-6 py-6 text-on-surface-variant italic">48 - 60 Months</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+<span class="text-sm">Moderate</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Visual Explainer Block -->
+<div class="relative rounded-3xl overflow-hidden min-h-[400px] flex items-center p-8 md:p-16">
+<img alt="Data Intelligence" class="absolute inset-0 w-full h-full object-cover" data-alt="futuristic digital map of a city glowing with blue and violet data points and connections representing urban intelligence and growth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKtBLTMjLMK5G92-PbKxZo8Ma1XsRb95wTSJ9IFKjYJVvRJu99Udv28dtlWmMFX1whPbkhJi3NHLol4dZYcvcSkjR4LZvCLwWrdoo9kT1FJtLbe4MRaAAIvzNmHaBx42Ex6l05idxjsBHFY8ZxV-U-V6niJRQXHvNxzk-5dGijgONyq1jYyupXD9w2gfQ5ib9dhyrQxUxF4_gAk4Ai-d1Onn0Yed-Tvjtn-ZGW9G7sG2OkseUNzam7uscoIdIulf_REdF2UsiwW3wg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-inverse-surface/90 to-transparent"></div>
+<div class="relative z-10 max-w-lg">
+<h3 class="text-3xl font-headline font-bold text-white mb-6">Real-Time Synthesis</h3>
+<p class="text-white/80 leading-relaxed mb-8">
+                        Every 15 minutes, Find Blue re-calculates millions of data points to ensure the "Mismatch Score" reflects the current pulse of the city. We don't just look at where people are—we look at where they are going next.
+                    </p>
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold shadow-2xl hover:scale-105 transition-transform">Explore the Map</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Meta -->
+<footer class="md:ml-64 bg-surface-container px-8 py-12 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold">FB</div>
+<span class="text-sm font-label font-bold tracking-widest text-outline">FIND BLUE v4.2.0</span>
+</div>
+<div class="flex gap-8 text-xs font-medium text-on-surface-variant">
+<a class="hover:text-primary" href="#">Privacy Protocol</a>
+<a class="hover:text-primary" href="#">Terms of Analysis</a>
+<a class="hover:text-primary" href="#">Methodology Archive</a>
+</div>
+<p class="text-xs text-outline">© 2024 Find Blue. Precision Urban Intelligence.</p>
+</div>
+</footer>
+</body></html>

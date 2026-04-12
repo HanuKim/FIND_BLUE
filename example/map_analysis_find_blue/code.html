@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Find Blue - Map Analysis</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#faf8ff",
+                    "primary-fixed": "#acbfff",
+                    "background": "#f7f9fb",
+                    "on-error": "#fff7f6",
+                    "on-surface-variant": "#596063",
+                    "surface-dim": "#d3dbdf",
+                    "tertiary": "#842cd3",
+                    "on-secondary": "#fbf7ff",
+                    "secondary": "#4a4bd7",
+                    "surface": "#f7f9fb",
+                    "tertiary-container": "#d4a6ff",
+                    "outline": "#757c7f",
+                    "on-secondary-container": "#3b3cc9",
+                    "secondary-fixed": "#e1e0ff",
+                    "on-tertiary-fixed": "#33005c",
+                    "on-tertiary-container": "#52008e",
+                    "secondary-dim": "#3d3dcb",
+                    "error": "#ac3434",
+                    "outline-variant": "#acb3b7",
+                    "on-background": "#2d3337",
+                    "tertiary-dim": "#7717c6",
+                    "secondary-fixed-dim": "#d1d0ff",
+                    "tertiary-fixed-dim": "#ca93ff",
+                    "secondary-container": "#e1e0ff",
+                    "on-secondary-fixed-variant": "#4647d3",
+                    "surface-container-highest": "#dde3e7",
+                    "primary": "#0053dc",
+                    "surface-container-high": "#e3e9ec",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-primary": "#618bff",
+                    "on-primary-fixed-variant": "#003ca5",
+                    "on-surface": "#2d3337",
+                    "on-secondary-fixed": "#2622b7",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container": "#eaeef1",
+                    "on-error-container": "#65000b",
+                    "tertiary-fixed": "#d4a6ff",
+                    "on-tertiary": "#fff6ff",
+                    "on-primary-container": "#003592",
+                    "error-container": "#f56965",
+                    "on-tertiary-fixed-variant": "#5e00a2",
+                    "surface-variant": "#dde3e7",
+                    "primary-fixed-dim": "#98b1ff",
+                    "on-primary-fixed": "#002265",
+                    "inverse-surface": "#0b0f10",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#9a9d9f",
+                    "error-dim": "#70030f",
+                    "primary-dim": "#0049c2",
+                    "surface-tint": "#0053dc",
+                    "primary-container": "#acbfff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-b border-white/10 dark:border-white/5 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center px-8 h-20 w-full font-['Manrope'] tracking-tight">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Find Blue</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Dashboard</a>
+<a class="text-blue-600 dark:text-indigo-400 font-semibold border-b-2 border-blue-600 dark:border-indigo-400 pb-1" href="#">Map Analysis</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Trends</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Recommendations</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">AI Report</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">chat</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">help_outline</span>
+</div>
+<button class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-primary/20 scale-95 active:scale-90 transition-transform duration-200">Start Analysis</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-highest">
+<img alt="User Profile" data-alt="professional portrait of a tech executive in a clean modern office setting with natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4GD45hkfzSlBa-vxumTSJab3QAsR4oHS3wHV5v6kcc3M9tg5m_7O8sXK6SiDjZiXRIZ5gXXIwcmZmlUqiyO4c6jzm44xerlON82iDFxN9Ud8armLq7m-eqm0d7W9a6bmBE_1uI1DUR14IO8Fs1_334B1zH5Qp6CHUK0QAI8b-lZgY1XSYWhvt4fzUd-6aN3rVwcw5m-g_ueMhpfOtuV9CT_T_u5PSGyB_XYcupw6h1CaBzH9EC4QWCumoHis7PSJA2Cqh6ZL4K-k3"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-20 h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 w-64 h-[calc(100vh-2rem)] my-4 flex flex-col p-4 bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl rounded-r-3xl shadow-2xl shadow-blue-900/10 z-40 transition-all duration-300 ease-in-out">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="font-black text-blue-700 dark:text-indigo-500 font-headline uppercase tracking-widest text-xs">The Observatory</span>
+</div>
+<p class="text-[10px] text-slate-500 font-label uppercase tracking-tighter pl-11">Urban Data Analysis</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 text-blue-700 dark:text-indigo-300 rounded-xl font-headline font-medium transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+<span>Map Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 rounded-xl font-headline font-medium transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Demand</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 rounded-xl font-headline font-medium transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Trends</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 rounded-xl font-headline font-medium transition-all" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>AI Report</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-white/20 rounded-xl font-headline font-medium transition-all" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>Guide</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-primary/5 rounded-2xl border border-primary/10">
+<p class="text-xs font-label text-primary font-bold mb-2">QUICK STATS</p>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-[10px] text-slate-500">Active Nodes</span>
+<span class="text-xs font-bold">1,240</span>
+</div>
+<div class="w-full bg-slate-200 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Map Canvas (Full-width behind panels) -->
+<div class="relative flex-1 ml-64 overflow-hidden">
+<!-- Simulated Map Image with Overlays -->
+<div class="absolute inset-0 z-0">
+<img alt="Detailed urban satellite map" class="w-full h-full object-cover" data-alt="high-resolution aerial satellite view of a modern city grid with glowing data heatmaps of blue and red zones superimposed" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVeTAgWtMDx2rn66tuOzcU-dGmBopDkpqRp5f5grzh05IRMS8r3kga5b7PshO84LTxlnT-9Q9q_ZfeuLQ-tAZXA-uJZpAvIoS_V-9YKdxLAaD7qPti52ksOvnFJWOZmGH2S4eNbR2RgYvtUHCOeAYMeZCea1eND3_FTlGIOlhdDIvXZ0Mcyw5a4XOMladRhIDPToY0oldnB0E8liA3tHb-SCFgkzIOOt1hw7UbhK63wSELpJEmXN17YBx0uHnIzq4qbsJl7R_bTTMJ"/>
+<!-- SVG Heatmap Overlay -->
+<svg class="absolute inset-0 w-full h-full opacity-60 mix-blend-multiply" viewbox="0 0 1000 1000">
+<!-- Blue Zones (Opportunity) -->
+<circle cx="300" cy="400" fill="url(#blueGradient)" r="150"></circle>
+<circle cx="700" cy="200" fill="url(#blueGradient)" r="120"></circle>
+<path d="M 100 100 Q 250 50 400 150 T 600 300" fill="none" stroke="url(#blueGradient)" stroke-linecap="round" stroke-width="100"></path>
+<!-- Red Zones (Over-saturated) -->
+<circle cx="500" cy="600" fill="url(#redGradient)" r="180"></circle>
+<circle cx="200" cy="800" fill="url(#redGradient)" r="100"></circle>
+<defs>
+<radialgradient id="blueGradient">
+<stop offset="10%" stop-color="#0053dc"></stop>
+<stop offset="90%" stop-color="#0053dc" stop-opacity="0"></stop>
+</radialgradient>
+<radialgradient id="redGradient">
+<stop offset="10%" stop-color="#ac3434"></stop>
+<stop offset="90%" stop-color="#ac3434" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+</svg>
+<!-- Floating Tooltip Example -->
+<div class="absolute top-[45%] left-[35%] glass-panel rounded-2xl p-4 shadow-2xl border border-white/20 z-10 w-48 transition-all hover:scale-105">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-label font-bold text-primary tracking-widest uppercase">High Opportunity</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface">Chelsea District</h4>
+<div class="mt-2 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant font-label">Blue Score</p>
+<p class="text-xl font-black text-primary">8.4</p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim">arrow_outward</span>
+</div>
+</div>
+<!-- Red Tooltip Example -->
+<div class="absolute top-[65%] left-[55%] glass-panel rounded-2xl p-4 shadow-2xl border border-white/20 z-10 w-48">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-[10px] font-label font-bold text-error tracking-widest uppercase">Over-Saturated</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface">Midtown South</h4>
+<div class="mt-2 flex justify-between items-end">
+<div>
+<p class="text-[10px] text-on-surface-variant font-label">Blue Score</p>
+<p class="text-xl font-black text-error">2.1</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Side Panel (Filters) -->
+<div class="absolute right-8 top-8 bottom-8 w-80 glass-panel rounded-xl shadow-2xl border border-white/10 p-6 flex flex-col z-20">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline font-extrabold text-xl tracking-tight">Map Filters</h2>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">tune</span>
+</div>
+<div class="space-y-8 flex-1">
+<!-- Filter: District -->
+<div>
+<label class="text-[10px] font-label font-bold text-on-surface-variant tracking-widest uppercase mb-3 block">District Selection</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 text-sm font-medium focus:ring-2 focus:ring-primary/20 appearance-none">
+<option>All Districts</option>
+<option>Chelsea</option>
+<option>Midtown</option>
+<option>SoHo</option>
+<option>Upper East Side</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Filter: Score Range -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<label class="text-[10px] font-label font-bold text-on-surface-variant tracking-widest uppercase block">Score Range</label>
+<span class="text-xs font-bold text-primary">4.0 - 10.0</span>
+</div>
+<div class="px-2">
+<div class="relative w-full h-1 bg-surface-container-highest rounded-full">
+<div class="absolute left-1/3 right-0 h-full bg-primary rounded-full"></div>
+<div class="absolute left-1/3 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-lg cursor-pointer"></div>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-lg cursor-pointer"></div>
+</div>
+</div>
+</div>
+<!-- Filter: Zone Type -->
+<div>
+<label class="text-[10px] font-label font-bold text-on-surface-variant tracking-widest uppercase mb-3 block">Zone Type</label>
+<div class="grid grid-cols-1 gap-2">
+<button class="flex items-center justify-between px-4 py-3 bg-white/60 border border-primary/20 rounded-xl text-sm font-semibold text-primary transition-all hover:bg-primary/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>Blue Zones</span>
+</div>
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</button>
+<button class="flex items-center justify-between px-4 py-3 bg-white/40 border border-transparent rounded-xl text-sm font-medium text-on-surface-variant transition-all hover:bg-white/60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg">block</span>
+<span>Red Zones</span>
+</div>
+</button>
+<button class="flex items-center justify-between px-4 py-3 bg-white/40 border border-transparent rounded-xl text-sm font-medium text-on-surface-variant transition-all hover:bg-white/60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-lg">info</span>
+<span>Neutral Buffer</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-auto space-y-4 pt-6 border-t border-white/10">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex flex-col">
+<span class="text-[10px] font-label font-bold text-on-surface-variant uppercase">Current View</span>
+<span class="text-sm font-bold">New York, NY</span>
+</div>
+<span class="material-symbols-outlined text-primary">my_location</span>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 rounded-xl font-bold font-headline shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                        Update Heatmap
+                    </button>
+</div>
+</div>
+<!-- Map Controls Overlay -->
+<div class="absolute left-8 bottom-8 flex flex-col gap-2 z-20">
+<button class="w-12 h-12 glass-panel rounded-xl flex items-center justify-center text-on-surface hover:bg-white transition-all shadow-xl">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-12 h-12 glass-panel rounded-xl flex items-center justify-center text-on-surface hover:bg-white transition-all shadow-xl">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="mt-4">
+<button class="w-12 h-12 glass-panel rounded-xl flex items-center justify-center text-on-surface hover:bg-white transition-all shadow-xl">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+</div>
+<!-- Bottom Legend -->
+<div class="absolute left-1/2 -translate-x-1/2 bottom-8 glass-panel px-6 py-3 rounded-full flex items-center gap-8 shadow-2xl border border-white/20 z-20">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-primary shadow-sm shadow-primary/40"></div>
+<span class="text-[11px] font-label font-bold text-on-surface-variant uppercase tracking-wider">Opportunity</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-error shadow-sm shadow-error/40"></div>
+<span class="text-[11px] font-label font-bold text-on-surface-variant uppercase tracking-wider">Saturated</span>
+</div>
+<div class="h-4 w-px bg-on-surface-variant/20"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">visibility</span>
+<span class="text-[11px] font-label font-bold text-on-surface-variant uppercase tracking-wider">Show Points of Interest</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

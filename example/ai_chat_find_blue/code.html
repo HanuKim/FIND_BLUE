@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Find Blue - AI Analysis Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#faf8ff",
+                      "primary-fixed": "#acbfff",
+                      "background": "#f7f9fb",
+                      "on-error": "#fff7f6",
+                      "on-surface-variant": "#596063",
+                      "surface-dim": "#d3dbdf",
+                      "tertiary": "#842cd3",
+                      "on-secondary": "#fbf7ff",
+                      "secondary": "#4a4bd7",
+                      "surface": "#f7f9fb",
+                      "tertiary-container": "#d4a6ff",
+                      "outline": "#757c7f",
+                      "on-secondary-container": "#3b3cc9",
+                      "secondary-fixed": "#e1e0ff",
+                      "on-tertiary-fixed": "#33005c",
+                      "on-tertiary-container": "#52008e",
+                      "secondary-dim": "#3d3dcb",
+                      "error": "#ac3434",
+                      "outline-variant": "#acb3b7",
+                      "on-background": "#2d3337",
+                      "tertiary-dim": "#7717c6",
+                      "secondary-fixed-dim": "#d1d0ff",
+                      "tertiary-fixed-dim": "#ca93ff",
+                      "secondary-container": "#e1e0ff",
+                      "on-secondary-fixed-variant": "#4647d3",
+                      "surface-container-highest": "#dde3e7",
+                      "primary": "#0053dc",
+                      "surface-container-high": "#e3e9ec",
+                      "surface-container-low": "#f1f4f6",
+                      "inverse-primary": "#618bff",
+                      "on-primary-fixed-variant": "#003ca5",
+                      "on-surface": "#2d3337",
+                      "on-secondary-fixed": "#2622b7",
+                      "surface-bright": "#f7f9fb",
+                      "surface-container": "#eaeef1",
+                      "on-error-container": "#65000b",
+                      "tertiary-fixed": "#d4a6ff",
+                      "on-tertiary": "#fff6ff",
+                      "on-primary-container": "#003592",
+                      "error-container": "#f56965",
+                      "on-tertiary-fixed-variant": "#5e00a2",
+                      "surface-variant": "#dde3e7",
+                      "primary-fixed-dim": "#98b1ff",
+                      "on-primary-fixed": "#002265",
+                      "inverse-surface": "#0b0f10",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#9a9d9f",
+                      "error-dim": "#70030f",
+                      "primary-dim": "#0049c2",
+                      "surface-tint": "#0053dc",
+                      "primary-container": "#acbfff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Space Grotesk"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-gradient-bg {
+            background: radial-gradient(circle at top right, rgba(172, 191, 255, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(74, 75, 215, 0.05), transparent);
+        }
+        .message-bubble-ai {
+            box-shadow: 0 4px 15px -3px rgba(0, 83, 220, 0.05);
+        }
+        .message-bubble-user {
+            box-shadow: 0 4px 15px -3px rgba(74, 75, 215, 0.2);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(172, 179, 183, 0.2); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(172, 179, 183, 0.4); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-20 w-full bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-b border-white/10 dark:border-white/5 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] font-['Manrope'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Find Blue</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Map Analysis</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Trends</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors" href="#">Recommendations</a>
+<a class="text-blue-600 dark:text-indigo-400 font-semibold border-b-2 border-blue-600 dark:border-indigo-400 pb-1" href="#">AI Report</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<button class="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2.5 rounded-xl font-headline font-semibold text-sm shadow-lg shadow-primary/20 scale-95 active:scale-90 transition-transform duration-200">
+                Start Analysis
+            </button>
+</div>
+</nav>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-20 w-64 flex flex-col p-4 bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl rounded-r-3xl h-[calc(100vh-2rem)] my-4 shadow-2xl shadow-blue-900/10 z-40 hidden lg:flex">
+<div class="flex items-center gap-3 px-3 py-6 mb-4">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-headline font-black text-blue-700 text-lg leading-tight">The Observatory</h2>
+<p class="text-[10px] uppercase tracking-widest text-outline font-label">Urban Data Analysis</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/20 transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-['Manrope'] font-medium">Map Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/20 transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Manrope'] font-medium">Demand</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/20 transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-['Manrope'] font-medium">Trends</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 text-blue-700 rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-['Manrope'] font-medium">AI Report</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-white/20 transition-all duration-300 rounded-xl" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-['Manrope'] font-medium">Guide</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-low rounded-2xl border border-white/40">
+<p class="text-xs text-on-surface-variant font-label mb-2">QUOTA STATUS</p>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+<p class="text-[10px] mt-2 text-on-surface-variant">68% of daily tokens used</p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 mt-20 h-[calc(100vh-5rem)] relative overflow-hidden glass-gradient-bg">
+<!-- Floating Ambient Glows -->
+<div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-secondary/10 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="max-w-5xl mx-auto h-full flex flex-col px-6 py-8">
+<!-- Chat Header -->
+<header class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-background">AI Analysis Chat</h1>
+<p class="text-on-surface-variant font-label flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        DeepMind Urban Intelligence Engine Active
+                    </p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-xl bg-surface-container-lowest/50 backdrop-blur-md text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-lowest/50 backdrop-blur-md text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">ios_share</span>
+</button>
+</div>
+</header>
+<!-- Chat Scroll Area -->
+<section class="flex-1 overflow-y-auto space-y-8 pb-32 px-2">
+<!-- AI Message -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="flex items-center gap-3 mb-2 px-1">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-xs font-label font-bold text-on-surface-variant">FIND BLUE AI</span>
+<span class="text-[10px] text-outline">10:42 AM</span>
+</div>
+<div class="p-6 bg-surface-container-lowest/80 backdrop-blur-xl border border-white/60 rounded-2xl rounded-tl-none message-bubble-ai">
+<p class="text-on-surface leading-relaxed">Hello! I've completed the preliminary sweep of the **East District** urban density maps. I noticed a 14% uptick in foot traffic near the proposed retail nodes. Would you like me to cross-reference this with the current zoning variances or proceed to the competitive saturation report?</p>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="p-3 bg-surface-container-low rounded-xl border border-white/40 group cursor-pointer hover:bg-primary/5 transition-all">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm text-primary">data_exploration</span>
+<span class="text-xs font-bold text-on-surface">Zoning Analysis</span>
+</div>
+<p class="text-[10px] text-on-surface-variant">Analyze R-3 to C-2 transitions.</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl border border-white/40 group cursor-pointer hover:bg-primary/5 transition-all">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-sm text-primary">pie_chart</span>
+<span class="text-xs font-bold text-on-surface">Market Saturation</span>
+</div>
+<p class="text-[10px] text-on-surface-variant">View existing retail competitors.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end max-w-[85%] ml-auto">
+<div class="flex items-center gap-3 mb-2 px-1">
+<span class="text-[10px] text-outline">10:45 AM</span>
+<span class="text-xs font-label font-bold text-on-surface-variant">YOU</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+</div>
+</div>
+<div class="p-6 bg-gradient-to-br from-primary to-secondary text-white rounded-2xl rounded-tr-none message-bubble-user">
+<p class="leading-relaxed">That's interesting. Let's look at the zoning analysis first. I want to know if there's any pending litigation or public hearing dates for the R-3 sector near the metro station.</p>
+</div>
+</div>
+<!-- AI Message with Image -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="flex items-center gap-3 mb-2 px-1">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-xs font-label font-bold text-on-surface-variant">FIND BLUE AI</span>
+<span class="text-[10px] text-outline">10:46 AM</span>
+</div>
+<div class="p-6 bg-surface-container-lowest/80 backdrop-blur-xl border border-white/60 rounded-2xl rounded-tl-none message-bubble-ai">
+<p class="text-on-surface leading-relaxed mb-4">Understood. I've pulled the spatial overlay for the R-3 sector. There is a public hearing scheduled for **September 14th** regarding a mixed-use conversion project at Site 4B.</p>
+<div class="rounded-xl overflow-hidden border border-white/20 mb-4 shadow-inner">
+<img alt="Urban Zoning Map" class="w-full h-48 object-cover" data-alt="abstract architectural blueprint of a city grid with neon blue and purple data overlays showing urban density zones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZc2SI9GjALlpToNnnc2JCN0qbUOiC3jrS2qkRehLoEXEXusLguuIGBMq7g8aD7cmHnoy8ovAltO9SI8SsL07rVY2t21pT10Vd6kZfdLXK7OyoKxHCR-DL15nwW3YH9QluTvpXp0M9WvdCBO8Rav2Xx8LLwf-K8uDtruybyXw5UQENmjfLvYtetun9HNvdXXWLK3PcVxwbmP8-LOvk5J5bch2DNe4KPxQh_0i5G7JtBhJKg2apMxl8osIf8Aq6y9FzSHx-GaQQ-LuB"/>
+</div>
+<p class="text-on-surface leading-relaxed">The heatmap shows high density (Blue) concentrated around the transit hub. Site 4B is currently highlighted in red for the hearing notice.</p>
+</div>
+</div>
+<!-- Status Indicator -->
+<div class="flex justify-center">
+<div class="px-4 py-1.5 bg-surface-container/30 backdrop-blur-md rounded-full border border-white/20">
+<p class="text-[10px] font-label text-outline uppercase tracking-widest">AI is synthesizing satellite data...</p>
+</div>
+</div>
+</section>
+<!-- Input Area -->
+<section class="absolute bottom-8 left-6 right-6 lg:left-12 lg:right-12">
+<div class="max-w-4xl mx-auto">
+<div class="relative group">
+<!-- Glow effect -->
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-20 group-focus-within:opacity-40 transition duration-500"></div>
+<!-- Input Box -->
+<div class="relative bg-surface-container-lowest/70 backdrop-blur-2xl border border-white/60 rounded-2xl flex items-end p-2 pr-4 shadow-xl">
+<div class="flex flex-col flex-1">
+<div class="flex gap-2 px-3 py-2 border-b border-white/10 mb-2">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">attach_file</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">image</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">mic</span>
+</button>
+</div>
+<textarea class="bg-transparent border-none focus:ring-0 text-on-surface placeholder-outline-variant px-4 py-2 resize-none font-body w-full" placeholder="Type your query about urban data..." rows="1"></textarea>
+</div>
+<button class="mb-2 bg-gradient-to-r from-primary to-secondary text-white w-12 h-12 rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center mt-3 gap-6">
+<p class="text-[10px] text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                            Encrypted Data Stream
+                        </p>
+<p class="text-[10px] text-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">timer</span>
+                            Latency: 24ms
+                        </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on Chat by Suppression Rule, but available for other primary screens) -->
+<!-- Suppressed on this Task-Focused screen per shell mandate -->
+</body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Find Blue | AI Report</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#faf8ff",
+                    "primary-fixed": "#acbfff",
+                    "background": "#f7f9fb",
+                    "on-error": "#fff7f6",
+                    "on-surface-variant": "#596063",
+                    "surface-dim": "#d3dbdf",
+                    "tertiary": "#842cd3",
+                    "on-secondary": "#fbf7ff",
+                    "secondary": "#4a4bd7",
+                    "surface": "#f7f9fb",
+                    "tertiary-container": "#d4a6ff",
+                    "outline": "#757c7f",
+                    "on-secondary-container": "#3b3cc9",
+                    "secondary-fixed": "#e1e0ff",
+                    "on-tertiary-fixed": "#33005c",
+                    "on-tertiary-container": "#52008e",
+                    "secondary-dim": "#3d3dcb",
+                    "error": "#ac3434",
+                    "outline-variant": "#acb3b7",
+                    "on-background": "#2d3337",
+                    "tertiary-dim": "#7717c6",
+                    "secondary-fixed-dim": "#d1d0ff",
+                    "tertiary-fixed-dim": "#ca93ff",
+                    "secondary-container": "#e1e0ff",
+                    "on-secondary-fixed-variant": "#4647d3",
+                    "surface-container-highest": "#dde3e7",
+                    "primary": "#0053dc",
+                    "surface-container-high": "#e3e9ec",
+                    "surface-container-low": "#f1f4f6",
+                    "inverse-primary": "#618bff",
+                    "on-primary-fixed-variant": "#003ca5",
+                    "on-surface": "#2d3337",
+                    "on-secondary-fixed": "#2622b7",
+                    "surface-bright": "#f7f9fb",
+                    "surface-container": "#eaeef1",
+                    "on-error-container": "#65000b",
+                    "tertiary-fixed": "#d4a6ff",
+                    "on-tertiary": "#fff6ff",
+                    "on-primary-container": "#003592",
+                    "error-container": "#f56965",
+                    "on-tertiary-fixed-variant": "#5e00a2",
+                    "surface-variant": "#dde3e7",
+                    "primary-fixed-dim": "#98b1ff",
+                    "on-primary-fixed": "#002265",
+                    "inverse-surface": "#0b0f10",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#9a9d9f",
+                    "error-dim": "#70030f",
+                    "primary-dim": "#0049c2",
+                    "surface-tint": "#0053dc",
+                    "primary-container": "#acbfff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.25rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .glowing-cta {
+            background: linear-gradient(135deg, #0053dc 0%, #4a4bd7 100%);
+            box-shadow: 0 0 20px rgba(0, 83, 220, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glowing-cta:hover {
+            box-shadow: 0 0 30px rgba(0, 83, 220, 0.5);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-8 h-20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-headline tracking-tight">Find Blue</span>
+<div class="hidden md:flex items-center gap-8 font-headline">
+<a class="text-slate-600 hover:text-blue-50 transition-colors" href="#">Home</a>
+<a class="text-slate-600 hover:text-blue-50 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-600 hover:text-blue-50 transition-colors" href="#">Map Analysis</a>
+<a class="text-slate-600 hover:text-blue-50 transition-colors" href="#">Trends</a>
+<a class="text-slate-600 hover:text-blue-50 transition-colors" href="#">Recommendations</a>
+<a class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" href="#">AI Report</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="chat">chat</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="help_outline">help_outline</button>
+<button class="glowing-cta text-white px-6 py-2.5 rounded-full font-headline text-sm font-bold tracking-tight">Start Analysis</button>
+</div>
+</nav>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-20 w-64 flex flex-col p-4 bg-white/40 backdrop-blur-2xl rounded-r-xl h-[calc(100vh-5rem)] my-4 shadow-2xl shadow-blue-900/10 hidden lg:flex">
+<div class="mb-8 px-4">
+<h2 class="font-black text-blue-700 font-headline">The Observatory</h2>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-label mt-1">Urban Data Analysis</p>
+</div>
+<nav class="space-y-2 font-headline">
+<a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/20 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Map Analysis</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/20 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Demand</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/20 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Trends</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 text-blue-700 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-bold">AI Report</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-slate-500 hover:bg-white/20 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Guide</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-28 pb-12 px-6 lg:ml-72 min-h-screen">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-extrabold font-headline tracking-tighter text-on-background mb-2">Market Intelligence Report</h1>
+<p class="text-on-surface-variant max-w-lg">Advanced synthesis of local economic indicators, urban mobility patterns, and competitive density.</p>
+</div>
+<!-- Region Selection & CTA -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="glass-card px-5 py-3 rounded-xl flex items-center gap-3 border border-white/20 shadow-sm min-w-[240px]">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<div class="flex-1">
+<p class="text-[10px] font-label uppercase text-on-surface-variant leading-none mb-1">Region Selection</p>
+<select class="bg-transparent border-none p-0 focus:ring-0 font-headline font-bold text-sm w-full cursor-pointer">
+<option>North Metropolitan District</option>
+<option>Downtown Innovation Hub</option>
+<option>Seaside Logistics Corridor</option>
+</select>
+</div>
+</div>
+<button class="glowing-cta text-on-primary px-8 py-4 rounded-xl font-headline font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    Generate Report
+                </button>
+</div>
+</header>
+<!-- Main AI Report Card -->
+<section class="glass-card rounded-xl border border-white/20 overflow-hidden shadow-xl mb-8">
+<!-- Background Image Integration -->
+<div class="h-64 w-full relative overflow-hidden">
+<img alt="Urban landscape" class="w-full h-full object-cover opacity-60" data-alt="cinematic aerial view of a futuristic city grid at dusk with neon blue light trails and architectural geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4PkBEZTwihwI8t6852K4qEBoNLbmaGFGgXQWJOIqJzHmcQU40ocwebtSdGSdEIxDvSPopWONM4_b_MVOABe1d_lJ4hmtrxfi1SBeagk50XuvDmU7ag0I1vlhGOiZQHtWEp4ErWoY9P1LTLW22ZLfW-OLZ7dZBKRPMxLDj4DP_3MclS5JyRnKLgRxUbl93ySG5WxzkYFORODf2eFYojPo__qV3abbyyLt7AgnCMGZX7ZUjvM7J9JEI4-PtEfh_I8yasDSH9DFca4a6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-label font-bold mb-3 inline-block">PREMIUM ANALYSIS v4.2</span>
+<h2 class="text-3xl font-headline font-extrabold text-on-background">The North Metropolitan Blueprint</h2>
+</div>
+</div>
+<!-- Report Content Grid -->
+<div class="p-8 lg:p-12 space-y-12">
+<!-- Summary Section -->
+<div class="max-w-3xl">
+<h3 class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold mb-4 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-primary"></span>
+                        Executive Summary
+                    </h3>
+<p class="text-xl font-body text-on-background leading-relaxed">
+                        The <span class="font-bold text-primary">North Metropolitan District</span> exhibits an unprecedented 14% surge in micro-mobility demand coupled with a tightening supply of creative office space. AI synthesis suggests a critical pivot point for high-frequency retail ventures.
+                    </p>
+</div>
+<!-- Bento Grid for Core Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Top Recommendations -->
+<div class="md:col-span-8 bg-surface-container-low/50 rounded-xl p-8 border border-white/10">
+<h4 class="font-headline font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+                            Strategic Recommendations
+                        </h4>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-label text-xs shrink-0">01</div>
+<div>
+<h5 class="font-bold text-on-background">Automated Fulfillment Hubs</h5>
+<p class="text-sm text-on-surface-variant mt-1">Deploy dark stores within the 2km radius of the subway junction to capture the 18:00 - 20:00 surge.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-label text-xs shrink-0">02</div>
+<div>
+<h5 class="font-bold text-on-background">Eco-Focused Retail Clusters</h5>
+<p class="text-sm text-on-surface-variant mt-1">Transition existing commercial leases to 'Green-Label' verified anchors to align with new regional tax incentives.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-label text-xs shrink-0">03</div>
+<div>
+<h5 class="font-bold text-on-background">Adaptive Parking Conversion</h5>
+<p class="text-sm text-on-surface-variant mt-1">Convert underutilized Tier-2 parking structures into mixed-use vertical farming or co-working pods.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Investment Score Radial/Card -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-xl p-8 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-2xl">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+<p class="font-label text-xs uppercase tracking-widest opacity-80 mb-4">Investment Score</p>
+<div class="text-7xl font-headline font-black mb-2">8.4</div>
+<div class="text-sm font-medium opacity-90 px-4 py-1 bg-white/10 rounded-full">High Confidence</div>
+<p class="text-xs mt-6 opacity-70">Based on 1.2M data points across 14 categories.</p>
+</div>
+<!-- Risks Section -->
+<div class="md:col-span-12 lg:col-span-7 bg-surface-container-low/50 rounded-xl p-8 border border-white/10">
+<h4 class="font-headline font-bold text-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+                            Risk Assessment
+                        </h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-white/50 rounded-lg border border-white/30">
+<span class="text-xs font-label text-error font-bold block mb-1">Zoning Volatility</span>
+<p class="text-sm text-on-background">Proposed residential re-zoning in Sector B may delay commercial licensing by 6-8 months.</p>
+</div>
+<div class="p-4 bg-white/50 rounded-lg border border-white/30">
+<span class="text-xs font-label text-error font-bold block mb-1">Labor Scarcity</span>
+<p class="text-sm text-on-background">Median wage expectations in the hospitality sector have risen 12.5% YoY, impacting EBITDA.</p>
+</div>
+</div>
+</div>
+<!-- One-Line Insight -->
+<div class="md:col-span-12 lg:col-span-5 bg-tertiary text-on-tertiary rounded-xl p-8 flex flex-col justify-center">
+<span class="material-symbols-outlined text-3xl mb-4" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<p class="text-xl font-headline font-bold italic leading-tight">
+                            "The next 18 months will belong to those who treat space as a service, not a static asset."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Export Action -->
+<footer class="flex justify-center mt-12">
+<button class="glowing-cta text-on-primary px-12 py-5 rounded-xl font-headline font-bold flex items-center gap-3 text-lg group">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform" data-icon="picture_as_pdf">picture_as_pdf</span>
+                Export Complete AI Report (PDF)
+                <span class="text-xs bg-white/20 px-2 py-0.5 rounded ml-2 font-label">24.5 MB</span>
+</button>
+</footer>
+</main>
+</body></html>
