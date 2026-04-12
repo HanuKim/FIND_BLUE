@@ -1,6 +1,6 @@
-# 🏙️ Urban Mismatch Intelligence (Find Blue)
+# 🏙️ Find Blue (Snowflake, AI 기반 자영업 컨설팅 플랫폼)
 
-**Snowflake Cortex AI & Marketplace 데이터 기반 서울시 상권-주거 미스매치 분석 서비스**
+**Snowflake Cortex AI & Marketplace 데이터 기반 자영업자 컨설팅 서비스**
 
 서울시 주요 3개구(서초구, 영등포구, 중구)의 소비, 유동인구, 소득, 자산, 교통, 이사 수요 등 7종의 방대한 데이터를 결합하여 상권의 공급-수요 미스매치를 정밀 분석하고 AI 기반의 전문 컨설팅 리포트를 제공합니다.
 
